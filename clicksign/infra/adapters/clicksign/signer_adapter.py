@@ -10,10 +10,11 @@ class SignerClicksignAdapter:
 
     async def create_signer(self, signer: Signer) -> httpx.Response:
         headers = {
-            "Authorization": f"Bearer {self._auth_token}",
+            "Authorization": self._auth_token,
             "Content-Type": "application/json",
             "Accept": "application/json",
         }
+        print("PASSOU AQUIII")
         async with httpx.AsyncClient() as client:
             response = await client.post(
                 f"{self._base_url}/api/v3/envelopes/{signer.envelope_id}/signers?access_token={self._auth_token}",

@@ -11,7 +11,7 @@ class DocumentClicksignAdapter(IDocumentAdapter):
 
     async def create_document(self, document: Document) -> httpx.Response:
         headers = {
-            "Authorization": f"Bearer {self._auth_token}",
+            "Authorization": self._auth_token,
             "Content-Type": "application/json",
             "Accept": "application/json",
         }
