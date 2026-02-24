@@ -31,7 +31,7 @@ class EnvelopeClicksignAdapter(IEnvelopeAdapter):
 
     async def activate_envelope(self, envelope: Envelope) -> httpx.Response:
         headers = {
-            "Authorization": f"Bearer {self._auth_token}",
+            "Authorization": self._auth_token,
             "Content-Type": "application/json",
             "Accept": "application/json",
         }
